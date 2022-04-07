@@ -14,10 +14,15 @@ const int buttonPin = 7;
 
 
 void setup() {
-  myServo.attach(9);
+  myServo.attach(9);  //using .attach to initialize servo to pin 9
   pinMode(buttonPin, INPUT);
 }
 
 void loop() {
-  
+  //if button is pressed, swivel servo 180 degrees
+  if(digitalRead(buttonPin) == HIGH) {
+    myServo.write(180);
+  } else {
+    myServo.write(0);
+  }
 }
