@@ -14,11 +14,11 @@ Servo changeServo;
 Servo arrowServo;
 
 //if you want to change these pin numbers to make it organized, do so
-const int bushPin = 13;
-const int quiverPin = 12;
-const int elixirPin = 8;
-const int jadeRabbitPin = 7;
-const int ledPin = 2;
+const int bushPin = 4;
+const int quiverPin = 8;
+const int elixirPin = 5;
+const int jadeRabbitPin = 12;
+const int ledPin = 13;
 
 void setup() {
  servos();
@@ -49,9 +49,9 @@ void loop() {
 }
 
 void servos() {  //change these numbers if necessary for organization
- houYiServo.attach(11);  //using .attach to initialize servo to pin 11
- changeServo.attach(9);
- arrowServo.attach(10);
+ houYiServo.attach(2);  //using .attach to initialize servo to pin 11
+ changeServo.attach(11);
+ arrowServo.attach(6);
 }
 
 void pins() {
@@ -63,7 +63,7 @@ void pins() {
 
 void initialize() {
   houYiServo.write(0);
- changeServo.write(90);
+ changeServo.write(70);
  arrowServo.write(120);
 }
 
