@@ -12,8 +12,9 @@ Description: button and servo program
 Servo houYiServo;
 Servo changeServo;
 Servo arrowServo;
+float angle = 0;
 
-//if you want to change these pin numbers to make it organized, do so
+//CONSTANTS
 const int bushPin = 4;
 const int quiverPin = 8;
 const int elixirPin = 5;
@@ -27,8 +28,8 @@ void setup() {
 }
 
 void loop() {
- //if button is pressed, swivel servo 180 degrees
- if(digitalRead(bushPin) == LOW) {
+
+ if(digitalRead(bushPin) == LOW) {  //have to move the bush in order to start the story (also to move Hou Yi)
    houYiServo.write(180);
    
    if(digitalRead(elixirPin) == HIGH) {
@@ -39,7 +40,7 @@ void loop() {
      moveArrow();
    }
    
-   if(digitalRead(jadeRabbitPin) == LOW) {  //route 3
+   if(digitalRead(jadeRabbitPin) == LOW) {
      rabbitMoon();
    } else {
     digitalWrite(ledPin, LOW);
@@ -48,8 +49,9 @@ void loop() {
  }
 }
 
-void servos() {  //change these numbers if necessary for organization
- houYiServo.attach(2);  //using .attach to initialize servo to pin 11
+//connecting servos to pins using .attach
+void servos() {
+ houYiServo.attach(2);
  changeServo.attach(11);
  arrowServo.attach(6);
 }
@@ -59,16 +61,18 @@ void pins() {
  pinMode(quiverPin, INPUT);
  pinMode(elixirPin, INPUT);
  pinMode(jadeRabbitPin, INPUT);
+ pinMode(ledPin, OUTPUT);
 }
 
+//initializing servos to base angle
 void initialize() {
-  houYiServo.write(0);
+ houYiServo.write(0);
  changeServo.write(70);
  arrowServo.write(120);
 }
 
 void moveChange() {
- changeServo.write(20);
+  changeServo.write(20);
 }
 
 void moveArrow() {
