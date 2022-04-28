@@ -15,11 +15,11 @@ Servo arrowServo;
 float angle = 0;
 
 //CONSTANTS
-const int bushPin = 4;
-const int quiverPin = 8;
-const int elixirPin = 5;
-const int jadeRabbitPin = 12;
-const int ledPin = 13;
+const int bushPin = 13;
+const int quiverPin = 12;
+const int elixirPin = 8;
+const int jadeRabbitPin = 7;
+const int ledPin = 2;
 
 void setup() {
  servos();
@@ -51,9 +51,9 @@ void loop() {
 
 //connecting servos to pins using .attach
 void servos() {
- houYiServo.attach(2);
- changeServo.attach(11);
- arrowServo.attach(6);
+ houYiServo.attach(11);
+ changeServo.attach(9);
+ arrowServo.attach(10);
 }
 
 void pins() {
